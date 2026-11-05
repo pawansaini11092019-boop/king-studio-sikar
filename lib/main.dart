@@ -49,9 +49,9 @@ class _EditorPageState extends State<EditorPage> {
   Future<void> save() async {
     if (preview == null) return;
     final dir = await getApplicationDocumentsDirectory();
-    final folder = Directory('\${dir.path}/KING_STUDIO_SIKAR');
+    final folder = Directory('${dir.path}/KING_STUDIO_SIKAR');
     await folder.create(recursive: true);
-    final file = File('\${folder.path}/king_studio_\${DateTime.now().millisecondsSinceEpoch}.jpg');
+    final file = File('${folder.path}/king_studio_\${DateTime.now().millisecondsSinceEpoch}.jpg');
     await file.writeAsBytes(preview!);
     if (mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Photo saved in app storage')));
   }
@@ -59,7 +59,7 @@ class _EditorPageState extends State<EditorPage> {
   Future<void> share() async {
     if (preview == null) return;
     final dir = await getTemporaryDirectory();
-    final file = File('\${dir.path}/king_studio_share.jpg');
+    final file = File('${dir.path}/king_studio_share.jpg');
     await file.writeAsBytes(preview!);
     await Share.shareXFiles([XFile(file.path)], text: 'Edited with KING STUDIO SIKAR');
   }
@@ -81,9 +81,9 @@ class _EditorPageState extends State<EditorPage> {
       Container(height: 300, alignment: Alignment.center, decoration: BoxDecoration(color: Colors.black26, borderRadius: BorderRadius.circular(16)),
         child: preview == null ? const Text('Photo preview') : Image.memory(preview!, fit: BoxFit.contain)),
       Text(status, style: const TextStyle(color: Colors.white60)),
-      Text('Brightness: \${brightness.toStringAsFixed(2)}'),
+      Text('Brightness: ${brightness.toStringAsFixed(2)}'),
       Slider(value: brightness, min: -0.5, max: 0.5, onChanged: (v) => setState(() => brightness = v)),
-      Text('Contrast: \${contrast.toStringAsFixed(2)}'),
+      Text('Contrast: ${contrast.toStringAsFixed(2)}'),
       Slider(value: contrast, min: 0.5, max: 1.8, onChanged: (v) => setState(() => contrast = v)),
       FilledButton.icon(onPressed: original == null ? null : apply, icon: const Icon(Icons.auto_fix_high), label: const Text('Apply adjustments')),
       const SizedBox(height: 8),
