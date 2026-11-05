@@ -51,7 +51,7 @@ class _EditorPageState extends State<EditorPage> {
     final dir = await getApplicationDocumentsDirectory();
     final folder = Directory('${dir.path}/KING_STUDIO_SIKAR');
     await folder.create(recursive: true);
-    final file = File('${folder.path}/king_studio_\${DateTime.now().millisecondsSinceEpoch}.jpg');
+    final file = File('${folder.path}/king_studio_${DateTime.now().millisecondsSinceEpoch}.jpg');
     await file.writeAsBytes(preview!);
     if (mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Photo saved in app storage')));
   }
