@@ -1,9 +1,11 @@
 name: king_studio_sikar
-description: KING STUDIO SIKAR free photo editor starter
+description: KING STUDIO SIKAR Premium Photo Studio
 publish_to: "none"
 version: 1.0.0+1
+
 environment:
   sdk: ">=3.3.0 <4.0.0"
+
 dependencies:
   flutter:
     sdk: flutter
@@ -11,9 +13,13 @@ dependencies:
   image: ^4.2.0
   path_provider: ^2.1.4
   share_plus: ^10.0.2
+  file_picker: ^8.1.7
+  video_player: ^2.9.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+
 flutter:
   uses-material-design: true
